@@ -158,8 +158,11 @@ class ProjectCleaner:
         print(f"  ✓ After deduplication: {len(self.df_clean)} records")
         return self.df_clean
     
-    def add_missing_fields(self, access_date: str = "2026-09-13") -> pd.DataFrame:
+    def add_missing_fields(self, access_date: str = None) -> pd.DataFrame:
         """Add missing metadata fields."""
+        if access_date is None:
+            from datetime import datetime
+            access_date = datetime.now().strftime("%Y-%m-%d %H:%M")
         # Add missing columns
         new_fields = {
             'budget_amount_zmw': None,
@@ -226,7 +229,7 @@ class ProjectCleaner:
         print(f"Validation: {'PASSED ✓' if self.cleaning_report.get('validation_passed') else 'FAILED ✗'}")
         print("=" * 70 + "\n")
     
-    def run(self, access_date: str = "2026-09-13") -> pd.DataFrame:
+    def run(self, access_date: str = None) -> pd.DataFrame:
         """Execute complete cleaning pipeline."""
         print("\n" + "=" * 70)
         print("CLEANING EXTRACTED PROJECT DATA")
