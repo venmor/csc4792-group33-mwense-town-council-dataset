@@ -34,9 +34,25 @@ Or open `jupyter notebook` / `jupyter lab` and Run All. `RUN_SITE_CRAWL`, `RUN_S
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/venmor/csc4792-group33-mwense-town-council-dataset/blob/main/mwense-town-council-data-analysis.ipynb)
 
-1. Open the badge link, Runtime > Run all.
-2. If dependencies are missing, run first: `%pip install -q pandas requests beautifulsoup4 pypdf matplotlib seaborn`.
-3. The notebook downloads ~29MB of PDFs, extracts text, builds the table, and writes `outputs/`. Colab runtimes are ephemeral — download CSVs from the Files pane before disconnecting, or persist via `from google.colab import drive; drive.mount('/content/drive')` and copy `outputs/` to Drive.
+The repo opens with blank outputs. Work through it in this order:
+
+1. Open the badge link. If Colab asks, allow third-party cookies so the file list loads.
+2. Install dependencies once at the top: `%pip install -q pandas requests beautifulsoup4 pypdf matplotlib seaborn`, then Runtime > Restart runtime so the new packages load.
+3. Clone the repo inside Colab (the badge alone gives you the notebook without `scripts/` and `clean_data/`, which the notebook needs):
+```python
+!git clone https://github.com/venmor/csc4792-group33-mwense-town-council-dataset.git
+%cd csc4792-group33-mwense-town-council-dataset
+```
+4. First run only: set `RUN_SITE_CRAWL = True`, `RUN_SOURCE_DOWNLOAD = True`, `RUN_PDF_EXTRACTION = True` in the two acquisition cells, then Runtime > Run all. Later runs can leave them `False` to reuse files.
+5. Watch for these progress signals as cells execute (numbers in `[ ]` fill in as each cell finishes):
+   - Download cell prints one line per PDF (`Downloaded ... (10,061,548 bytes)` or `Skipped ... up-to-date`) plus `Done: N downloaded, M skipped`.
+   - Extraction cell prints one line per PDF plus `Done: N extracted, M skipped`, with a `WARNING` on the 2024 scan (expected).
+   - Listing cell prints the 4 PDFs and 4 text files with byte sizes.
+   - Build and cleaning cells print `Loaded 56 verified project records`, `Dataset now contains 59`, sector list, and the QA missingness table.
+   - Analysis cells render HTML tables (category, sector, finance by constituency, IDP types) and two figures.
+   - Export cell prints the three `outputs/db-unza26-csc4792-*.csv` paths plus `Separator: pipe (|)`.
+6. Confirm success: `outputs/` holds the 3 CSVs (59/47/6 rows) and `figures/` holds 2 PNGs. If any cell shows `[*]` for minutes, Runtime > Interrupt and rerun that cell; council downloads can be slow.
+7. Save results before the runtime recycles: open the Files pane, right-click `outputs/` > Download, or mount Drive with `from google.colab import drive; drive.mount('/content/drive')` and copy `outputs/` there. Expect 12 old `content-*` category URLs to report 404 in the manifest; the homepage `200` plus the 4 core PDFs are what the dataset uses.
 
 ## Dataset outputs
 
