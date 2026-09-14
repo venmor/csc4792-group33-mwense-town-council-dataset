@@ -78,5 +78,5 @@ SRC001 council website, SRC002 approved-projects page, SRC003 IDP 2024–2034, S
 
 * Kaggle dataset: https://www.kaggle.com/datasets/charleshangoma/mwense-town-council-public-records-dataset-g-33
 * Kaggle starter notebook: https://www.kaggle.com/code/charleshangoma/mwense-town-council-starter-notebook-group-33
-* Data in Brief paper: _to be added_
+* Data in Brief paper: [Data Description Paper](CSC4792_GROUP33_Mwense-Town-Council-Dataset.pdf)
 * Members: Musonda Katongo 2020583969, Charles Hangoma 2021414469, Nosiku Mukuka 2022030346, Aaron Simfukwe 2021376079 and Clement Nkhoma 2020044153
