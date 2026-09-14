@@ -76,6 +76,7 @@ SRC001 council website, SRC002 approved-projects page, SRC003 IDP 2024–2034, S
 
 ## Links and members
 
-* Kaggle dataset: _to be added_
+* Kaggle dataset: https://www.kaggle.com/datasets/charleshangoma/mwense-town-council-public-records-dataset-g-33
+* Kaggle starter notebook: https://www.kaggle.com/code/charleshangoma/mwense-town-council-starter-notebook-group-33
 * Data in Brief paper: _to be added_
 * Members: _to be added_
