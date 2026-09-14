@@ -78,4 +78,4 @@ SRC001 council website, SRC002 approved-projects page, SRC003 IDP 2024–2034, S
 
 * Kaggle dataset: _to be added_
 * Data in Brief paper: _to be added_
-* Members: _to be added_
+* Members: Musonda Katongo 2020583969, Charles Hangoma 2021414469, Nosiku Mukuka 2022030346, Aaron Simfukwe 2021376079 and Clement Nkhoma 2020044153
